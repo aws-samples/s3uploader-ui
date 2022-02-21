@@ -1,0 +1,36 @@
+{
+  "name": "s3-uploader",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@aws-amplify/ui-components": "^1.9.6",
+    "@aws-amplify/ui-react": "^2.1.5",
+    "@awsui/components-react": "^3.0.381",
+    "@awsui/global-styles": "^1.0.10",
+    "aws-amplify": "^4.3.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "source-map-explorer": "^2.5.2"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

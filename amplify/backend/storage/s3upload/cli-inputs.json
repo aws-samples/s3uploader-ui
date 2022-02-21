@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3upload",
+  "policyUUID": "a6b35a71",
+  "bucketName": "s3koikerupload",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
