@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.header-font-white {
+  color: white;
+}
+
+#navbar {
+  position: sticky;
+  zIndex: 1003;
+  backgroundColor: #16191f;
+}
+
+/*This CSS hide the signUp tab*/
+.amplify-tabs {
+  display: none;
+}
+
+/* This adjust the SignIn font size */
+:root{
+--amplify-components-fieldcontrol-small-font-size: 1.5rem;
+--amplify-components-button-font-size: 1.5rem;
+--amplify-components-fieldcontrol-font-size: 1.5rem;
+--amplify-components-tabs-item-font-size: 1.5rem;
+}
+
