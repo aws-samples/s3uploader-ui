@@ -2,18 +2,22 @@ import React, {useState, useRef} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import '@aws-amplify/ui-react/styles.css';
 import './App.css';
-import AppLayout from "@awsui/components-react/app-layout";
-import FormField from "@awsui/components-react/form-field";
-import Alert from "@awsui/components-react/alert";
-import Container from "@awsui/components-react/container";
-import Header from "@awsui/components-react/header";
-import SideNavigation from '@awsui/components-react/side-navigation';
-import Button from "@awsui/components-react/button";
-import TokenGroup from "@awsui/components-react/token-group";
-import TopNavigation from "@awsui/components-react/top-navigation"
-import SpaceBetween from "@awsui/components-react/space-between";
-import ProgressBar from "@awsui/components-react/progress-bar";
-import Amplify, {Auth, Storage} from 'aws-amplify';
+import {
+    AppLayout,
+    ContentLayout,
+    SideNavigation,
+    Header,
+    SpaceBetween,
+    Link,
+    Button,
+    Alert,
+    ProgressBar,
+    FormField,
+    TokenGroup,
+    Container,
+    TopNavigation
+} from "@cloudscape-design/components";
+import {Amplify, Auth, Storage} from 'aws-amplify';
 import {Authenticator} from '@aws-amplify/ui-react';
 
 import awsconfig from './aws-exports';
@@ -165,9 +169,21 @@ const Content = () => {
         </>
     );
     return (
+        <ContentLayout
+            header={
+                <SpaceBetween size="m">
+                    <Header
+                        variant="h1"
+                        info={<Link>Info</Link>}
+                        description="Web application to upload files to S3"
+                    >
+                        Application
+                    </Header>
+                </SpaceBetween>
+            }
+        >
         <SpaceBetween size="l">
             <Container
-                id="s3-upload-multiple-objects"
                 header={
                     <Header variant="h2">
                         Upload multiple objects to S3
@@ -176,16 +192,17 @@ const Content = () => {
             >
                 {
                     <div>
-                        <Alert
-                            onDismiss={() => setVisibleAlert(false)}
-                            visible={visibleAlert}
-                            dismissAriaLabel="Close alert"
-                            dismissible
-                            type="error"
-                            header="No files selected"
-                        >
-                            You must select the files that you want to upload.
-                        </Alert>
+                        {visibleAlert &&
+                            <Alert
+                                onDismiss={() => setVisibleAlert(false)}
+                                dismissAriaLabel="Close alert"
+                                dismissible
+                                type="error"
+                                header="No files selected"
+                            >
+                                You must select the files that you want to upload.
+                            </Alert>
+                        }
 
                         <FormField
                             label='Object Upload'
@@ -221,7 +238,6 @@ const Content = () => {
                 }
             </Container>
             <Container
-                id="history"
                 header={
                     <Header variant="h2">
                         History
@@ -231,12 +247,12 @@ const Content = () => {
                 <List list={historyList}/>
             </Container>
         </SpaceBetween>
-
+        </ContentLayout>
     );
 };
 
 function App() {
-    const [navigationOpen, setNavigationOpen] = useState(true);
+    const [navigationOpen, setNavigationOpen] = useState(false);
     const navbarItemClick = e => {
         console.log(e);
         if (e.detail.id === 'signout') {
